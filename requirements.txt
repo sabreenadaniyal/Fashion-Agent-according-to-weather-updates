@@ -1,5 +1,6 @@
 streamlit
 python-dotenv
 requests
+agents==0.1.29
 openai
 
