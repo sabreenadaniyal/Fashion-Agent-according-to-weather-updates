@@ -110,7 +110,7 @@ Coming soon on Streamlit Share or Hugging Face 🤗
 ## 📬 Feedback
 
 Found a bug or want to suggest a feature?
-Create an issue or email at: `yourname@email.com`
+Create an issue or email at: `sabreenazahid04@gmail.com`
 
 ---
 
