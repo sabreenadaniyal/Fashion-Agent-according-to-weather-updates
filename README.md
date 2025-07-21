@@ -26,8 +26,7 @@ The purpose of this project is to create an intelligent stylist agent that combi
 |--------------------|-------------------------------------------|
 | `Streamlit`        | Frontend interface                        |
 | `OpenAI Agents`    | Agent execution and LLM decision making   |
-| `Open-Meteo API`   | Fetching real-time weather info           |
-| `DeepAI API`       | Text-to-Image generation                  |
+| `Open-Meteo API`   | Fetching real-time weather info           |            |
 | `dotenv`           | Secure API key management                 |
 | `requests`         | HTTP requests to APIs                     |
 | `asyncio` / `nest_asyncio` | Asynchronous agent runtime        |
