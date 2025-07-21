@@ -10,6 +10,15 @@ The purpose of this project is to create an intelligent stylist agent that combi
 
 ---
 
+## 📡 Live 
+
+The Fashion according to weather agent pulls real-time product data from:
+
+https://fashion-agent-according-to-weather-updates-6rbquwemdqv4l5k7c85.streamlit.app/
+
+
+---
+
 ## 🧩 Features
 
 ✅ Real-time weather updates using Open-Meteo API  
