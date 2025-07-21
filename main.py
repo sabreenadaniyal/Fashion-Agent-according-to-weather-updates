@@ -67,17 +67,22 @@
 
 ## -------------------------------------------- WITH STREMLIT ------------------------------------------------
 
-import streamlit as st
 from agents import Agent, Runner, RunConfig, AsyncOpenAI, OpenAIChatCompletionsModel, function_tool
 from dotenv import load_dotenv
+import streamlit as st
 import os
 import datetime
 import asyncio
+import nest_asyncio
 import requests
+
+# Setup
+nest_asyncio.apply()
 
 # Load environment variables
 load_dotenv()
 gemini_api_key = os.getenv("GEMINI_API_KEY")
+
 
 # Tools
 @function_tool
@@ -85,12 +90,12 @@ def get_weather(city: str) -> str:
 
     # Mapping cities to their coordinates
     city_coords = {
-        "Karachi": (24.86, 67.01),
-        "Tokyo": (35.67, 139.65),
-        "Cape town": (-33.92, 18.42),
-        "London": (51.50, -0.127),
-        "New York 🇺🇸": (40.71, -74.00),
-        "Tokyo 🇯🇵": (35.67, 139.65)
+        "karachi": (24.86, 67.01),
+        "tokyo": (35.67, 139.65),
+        "cape town": (-33.92, 18.42),
+        "london": (51.50, -0.127),
+        "new York 🇺🇸": (40.71, -74.00),
+        "tokyo 🇯🇵": (35.67, 139.65)
     }
 
     city_lower = city.lower()
@@ -156,28 +161,49 @@ st.set_page_config(page_title="Fashion Stylist With SD", page_icon="👠", layou
 # --- Custom CSS ---
 st.markdown("""
     <style>
-        body, .stApp {
+        /* Apply global dark theme */
+        .stApp {
             background-color: #000000;
-            color: white;
+            color: grey;
         }
+
+        /* Title styling */
         .title-text {
             font-size: 2.2em;
             font-weight: bold;
             color: #f39c12;
+            margin-bottom: 1rem;
         }
+
+        /* Subtitle style (optional use) */
         .subtitle {
             color: #f1c40f;
+            font-size: 1.2em;
         }
-        .css-1v0mbdj, .css-1d391kg {
-            background-color: #222;
-            border-radius: 10px;
+
+        /* Input labels */
+        label {
+            color: #f1f1f1 !important;
+            font-weight: 500;
+        }
+
+        /* Inputs, buttons, and containers */
+        .stTextInput, .stButton > button, .stTextArea, .stSelectbox {
+            background-color: #222 !important;
+            color: white !important;
+            border-radius: 8px;
+        }
+
+        /* Output box and markdown card tweaks */
+        .stMarkdown, .stAlert {
+            background-color: #1a1a1a;
             padding: 1rem;
-        }
-        .stTextInput > label {
-            color: #f1f1f1;
+            border-radius: 10px;
+            color: white;
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # --- Sidebar ---
 st.sidebar.title("🧵 Fashion Stylist with SABREENA")
@@ -205,12 +231,10 @@ if get_outfit:
             run_config=config
             )
         )
-
         st.markdown("### 👚 Your Personalized Outfit Suggestion:")
         st.success(f"💬 {response.final_output}")
     else:
         st.warning("⚠️ Please enter both the city and the occasion.")
-
 
 # Footer
 st.markdown(

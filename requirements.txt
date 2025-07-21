@@ -1,5 +1,6 @@
-streamlit
-python-dotenv
-requests
-openai
-
+streamlit>=1.35.0
+requests>=2.31.0
+python-dotenv>=1.0.1
+agents>=0.1.7  # or the latest version you're using
+openai>=1.30.0  # Required by `agents` for OpenAI clients
+nest_asyncio
