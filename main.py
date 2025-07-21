@@ -128,7 +128,7 @@ def get_date_time():
 # External LLM client
 external_client = AsyncOpenAI(
     api_key=gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
 # Model and config
